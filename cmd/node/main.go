@@ -33,7 +33,6 @@ func check() {
 		<-timer.C
 		var memInfo runtime.MemStats
 		runtime.ReadMemStats(&memInfo)
-
 		if memInfo.Alloc > tag {
 			name := time.Now().Format("2006-01-02-15.04.05.999999999")
 			filename := fmt.Sprint("heap-", name, ".heap")
@@ -44,7 +43,7 @@ func check() {
 			}
 
 			pprof.WriteHeapProfile(f)
-			time.Sleep(120 * time.Second)
+			time.Sleep(110 * time.Second)
 		}
 	}
 
